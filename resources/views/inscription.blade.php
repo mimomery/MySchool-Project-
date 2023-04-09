@@ -90,12 +90,13 @@
             </div>
             <div class="row g-4" >
                 <div class="col-lg-4 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
-                    <form class="form-inline">
+                    <form class="form-inline" method="POST" action="{{route('store')}}">
+                        @csrf
                         <div class="row g-3">
                             
                         <h6>En quel niveau souhaitez-vous inscrire votre enfant ?</h6>
 
-                            <select name="pays" id="pays" class="form-control">
+                            <select name="level" id="level" class="form-control">
 <optgroup label="Matternelle ">
 <option value="Matternelle-Petitsection" >Matternelle-Petit section</option>
 <option value="Matternelle-Moyennesection">Matternelle-Moyenne section</option>
@@ -133,37 +134,32 @@
                               <br>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="nomeleve" placeholder="Nom">
-                                    <label for="nom">Nom Élève
+                                    <input type="nomeleve" class="form-control" id="nomeleve" placeholder="Nom" name="nomeleve">
+                                    <label for="nomeleve">Nom Élève
 </label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="prenom" class="form-control" id="prenomeleve" placeholder="Prénom">
-                                    <label for="prenom">Prénom Élève</label>
+                                    <input type="prenomeleve" class="form-control" id="prenomeleve" placeholder="Prénom" name="prenomeleve">
+                                    <label for="prenomeleve">Prénom Élève</label>
                                 </div>
                             </div>
-                           <!-- <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="tele" class="form-control" id="tele" placeholder="Gsm">
-                                    <label for="tele">Télephone</label>
-                                </div>
-                            </div>-->
+                        
                   
                             <div class="col-md-6 form-check ">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                <label class="form-check-label" for="inlineRadio1">fille</label>
+                                <input class="form-check-input" type="radio" name="sexe" id="fille" value="option1">
+                                <label class="form-check-label" for="sexe">fille</label>
                               </div>
                               <div class="col-md-6 form-check">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                <label class="form-check-label" for="inlineRadio2">garçon</label>
+                                <input class="form-check-input" type="radio" name="sexe" id="garcon" value="option2">
+                                <label class="form-check-label" for="sexe">garçon</label>
                               </div>
                               <br>
                               <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="tele" class="form-control" id="tele" placeholder="Gsm">
-                                    <label for="tele">Établissement de provenance
+                                    <input  class="form-control" id="etablisement"  name="etablisement" placeholder="Gsm">
+                                    <label for="etablisement">Établissement de provenance
 
 </label>
                                 </div>
@@ -171,8 +167,8 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="date" class="form-control" id="birthday" placeholder="date de naissance">
-                                    <label for="tele">date de naissance
+                                    <input type="date" class="form-control" id="date" name="date" placeholder="date de naissance">
+                                    <label for="date">date de naissance
 
 </label>
                                 </div>
@@ -181,7 +177,7 @@
  
                               <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="nom" placeholder="Nom">
+                                    <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom">
                                     <label for="nom">Nom Tuteur
 
 </label>
@@ -189,28 +185,28 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="prenom" class="form-control" id="prenom" placeholder="Prénom">
+                                    <input type="prenom" class="form-control" id="prenom" name="prenom" placeholder="Prénom">
                                     <label for="prenom">Prénom Tuteur
 </label>
                                 </div>
                             </div>
                                <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="tele" class="form-control" id="tele" placeholder="Gsm">
+                                    <input type="tele" class="form-control" id="tele" name="tele" placeholder="Gsm">
                                     <label for="tele">Téléphone Tuteur
 </label>
                                 </div>
                             </div> <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="tele" class="form-control" id="tele" placeholder="Gsm">
-                                    <label for="tele">Adresse Tuteur
+                                    <input type="adresse" class="form-control" id="adresse" name="adresse" placeholder="Gsm">
+                                    <label for="adresse">Adresse Tuteur
 </label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="tele" class="form-control" id="tele" placeholder="Gsm">
-                                    <label for="tele">Profession Tuteur
+                                    <input type="profession" class="form-control" id="profession" name="profession" placeholder="Gsm">
+                                    <label for="profession">Profession Tuteur
 </label>
                                 </div>
                             </div>
@@ -219,25 +215,14 @@
 
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Your Email">
                                     <label for="email">Email Tuteur
 </label>
                                 </div>
                             </div>
-                           <!-- <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="password" class="form-control" id="subject" placeholder="Subject">
-                                    <label for="subject">Mot de passe</label>
-                                </div>
-                            </div>
+                          
                             <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="password" class="form-control" id="subject" placeholder="Subject">
-                                    <label for="subject">Confirmer le Mot de passe</label>
-                                </div>
-                            </div>-->
-                            <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="submit">inscription</button>
+                                <button class="btn btn-primary w-100 py-3" type="submit" >inscription</button>
                             </div>
                         </div>
                     </form>

@@ -25,6 +25,15 @@
   <link rel="stylesheet" href="adminpanel/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="adminpanel/plugins/summernote/summernote-bs4.min.css">
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NzCoding - Laravel LivewireCRUD</title>
+
+    {{-- Bootstrap Styles --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    @livewireStyles
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -89,7 +98,7 @@
 
             <p>
               Administrateur - Web Developer
-              <small>MySchool 2022</small>
+              <small>MYSCHOOL 2022</small>
             </p>
           </li>
           <!-- Menu Footer-->
@@ -154,14 +163,14 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-            <a href="{{url('dashboard')}}" class="nav-link active">
+          <li class="nav-item  ">
+            <a href="{{url('dashboard')}}" class="nav-link  ">
               <i class="nav-icon fas fa-school"></i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="{{url('notes')}}" class="nav-link">
+          <li class="nav-item menu-open">
+            <a href="{{url('notes')}}" class="nav-link active">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Notes
@@ -169,17 +178,17 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href=" " class="nav-link">
+          <li class="nav-item  ">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>Utilisateurs
                 <i class="fas fa-angle-left right"></i>
                 <!--<span class="badge badge-info right">6</span>-->
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview  ">
               <li class="nav-item">
-                <a href="{{url('etudiant')}}" class="nav-link">
+                <a href="{{url('etudiant')}}" class="nav-link  ">
                   <i class="far fa-user nav-icon"></i>
                   <p>Etudiants</p>
                 </a>
@@ -288,6 +297,7 @@
       </nav>
       <!-- /.sidebar-menu -->
     </div>
+    
     <!-- /.sidebar -->
   </aside>
 
@@ -298,352 +308,279 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">NOTES</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
+              <li class="breadcrumb-item"><a href="#"> </a></li>
+              <li class="breadcrumb-item active">NOTES</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
+    <div class="card">
+             
+                <!-- /.card-header -->
+                <div class="card-body">
+                  
+<div>
+    <div class="container mt-5">
+       
         <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>150</h3>
-
-                <p>Administrateur</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 style="float: left;"><strong>All NOTES</strong></h5>
+                        <button class="btn btn-sm btn-primary" style="float: right;" data-toggle="modal" data-target="#addStudentModal">Add New NOTES</button>
+                    </div>
+                    <div class="card-body">
+                      
+                            
+                      
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th style="text-align: center;">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                        <tr>
+                                            <td> </td>
+                                            <td> </td>
+                                            <td> </td>
+                                            <td> </td>
+                                            <td style="text-align: center;">
+                                                <button class="btn btn-sm btn-secondary" wire:click="viewStudentDetails ">View</button>
+                                                <button class="btn btn-sm btn-primary" wire:click="editStudents ">Edit</button>
+                                                <button class="btn btn-sm btn-danger" wire:click="deleteConfirmation ">Delete</button>
+                                            </td>
+                                        </tr>
+                                 
+                                    <tr>
+                                         
+                                    </tr>
+                                 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>53</h3>
-
-                <p>Professeurs</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-stalker"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>44</h3>
-
-                <p>Parents</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-stalker"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>65</h3>
-
-                <p>Etudiants</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-stalker"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
         </div>
-        <!-- /.row -->
-        <!-- Main row -->
-        <div class="row">
-          <!-- Left col -->
-          <section class="col-lg-7 connectedSortable">
-            <!-- Custom tabs (Charts with tabs)-->
-            <div class="card">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">Bordered Table</h3>
+    </div>
 
-                  <div class="card-tools">
-                    <div class="input-group input-group-sm" style="width: 150px;">
-                      <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                      <div class="input-group-append">
-                        <button type="submit" class="btn btn-default">
-                          <i class="fas fa-search"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                  <table class="table table-bordered">
-                  <thead>
-                      <tr>
-                        <th>ID</th>
-                        <th>User</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>Reason</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>183</td>
-                        <td>John Doe</td>
-                        <td>11-7-2014</td>
-                        <td><span class="tag tag-success">Approved</span></td>
-                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                      </tr>
-                      <tr>
-                        <td>219</td>
-                        <td>Alexander Pierce</td>
-                        <td>11-7-2014</td>
-                        <td><span class="tag tag-warning">Pending</span></td>
-                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                      </tr>
-                      <tr>
-                        <td>657</td>
-                        <td>Bob Doe</td>
-                        <td>11-7-2014</td>
-                        <td><span class="tag tag-primary">Approved</span></td>
-                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                      </tr>
-                      <tr>
-                        <td>175</td>
-                        <td>Mike Doe</td>
-                        <td>11-7-2014</td>
-                        <td><span class="tag tag-danger">Denied</span></td>
-                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer clearfix">
-                  <ul class="pagination pagination-sm m-0 float-right">
-                    <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!-- /.card -->
-
-            <!-- Bordered Table -->
-            <div class="card">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">Bordered Table</h3>
-
-                  <div class="card-tools">
-                    <div class="input-group input-group-sm" style="width: 150px;">
-                      <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                      <div class="input-group-append">
-                        <button type="submit" class="btn btn-default">
-                          <i class="fas fa-search"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                  <table class="table table-bordered">
-                    <thead>
-                      <tr>
-                        <th style="width: 10px">#</th>
-                        <th>Task</th>
-                        <th>Progress</th>
-                        <th style="width: 40px">Label</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1.</td>
-                        <td>Update software</td>
-                        <td>
-                          <div class="progress progress-xs">
-                            <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                          </div>
-                        </td>
-                        <td><span class="badge bg-danger">55%</span></td>
-                      </tr>
-                      <tr>
-                        <td>2.</td>
-                        <td>Clean database</td>
-                        <td>
-                          <div class="progress progress-xs">
-                            <div class="progress-bar bg-warning" style="width: 70%"></div>
-                          </div>
-                        </td>
-                        <td><span class="badge bg-warning">70%</span></td>
-                      </tr>
-                      <tr>
-                        <td>3.</td>
-                        <td>Cron job running</td>
-                        <td>
-                          <div class="progress progress-xs progress-striped active">
-                            <div class="progress-bar bg-primary" style="width: 30%"></div>
-                          </div>
-                        </td>
-                        <td><span class="badge bg-primary">30%</span></td>
-                      </tr>
-                      <tr>
-                        <td>4.</td>
-                        <td>Fix and squish bugs</td>
-                        <td>
-                          <div class="progress progress-xs progress-striped active">
-                            <div class="progress-bar bg-success" style="width: 90%"></div>
-                          </div>
-                        </td>
-                        <td><span class="badge bg-success">90%</span></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer clearfix">
-                  <ul class="pagination pagination-sm m-0 float-right">
-                    <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!--/.Bordered Table -->
-
-            <!-- /.card -->
-          </section>
-          <!-- /.Left col -->
-          <!-- right col (We are only adding the ID to make the widgets sortable)-->
-          <section class="col-lg-5 connectedSortable">
-
-            <!-- Calendar -->
-            <div class="card bg-gradient-success">
-              <div class="card-header border-0">
-
-                <h3 class="card-title">
-                  <i class="far fa-calendar-alt"></i>
-                  Calendar
-                </h3>
-                <!-- tools card -->
-                <div class="card-tools">
-                  <!-- button with a dropdown -->
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" data-offset="-52">
-                      <i class="fas fa-bars"></i>
+    <!-- Modal -->
+    <div wire:ignore.self class="modal fade" id="addStudentModal" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Student</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
                     </button>
-                    <div class="dropdown-menu" role="menu">
-                      <a href="#" class="dropdown-item">Add new event</a>
-                      <a href="#" class="dropdown-item">Clear events</a>
-                      <div class="dropdown-divider"></div>
-                      <a href="#" class="dropdown-item">View calendar</a>
-                    </div>
-                  </div>
-                  <button type="button" class="btn btn-success btn-sm" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-success btn-sm" data-card-widget="remove">
-                    <i class="fas fa-times"></i>
-                  </button>
                 </div>
-                <!-- /. tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body pt-0">
-                <!--The calendar -->
-                <div id="calendar" style="width: 100%"></div>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+                <div class="modal-body">
 
-            <!-- Map card -->
-           <!-- <div class="card bg-gradient-primary">
-              <div class="card-header border-0">
-                <h3 class="card-title">
-                  <i class="fas fa-map-marker-alt mr-1"></i>
-                  Visitors
-                </h3>-->
-                <!-- card tools -->
-               <!-- <div class="card-tools">
-                  <button type="button" class="btn btn-primary btn-sm daterange" title="Date range">
-                    <i class="far fa-calendar-alt"></i>
-                  </button>
-                  <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse" title="Collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                </div>-->
-                <!-- /.card-tools -->
-              <!--</div>
-              <div class="card-body">
-                <div id="world-map" style="height: 250px; width: 100%;"></div>
-              </div>
-              -->
-              <!-- /.card-body-->
-              <div class="card-footer bg-transparent">
-                <div class="row">
-                  <div class="col-4 text-center">
-                    <div id="sparkline-1"></div>
-                  </div>
-                  <!-- ./col -->
-                  <div class="col-4 text-center">
-                    <div id="sparkline-2"></div>
+                    <form wire:submit.prevent="storeStudentData">
+                        <div class="form-group row">
+                            <label for="student_id" class="col-3">Student ID</label>
+                            <div class="col-9">
+                                <input type="number" id="student_id" class="form-control" wire:model="student_id">
+                                
+                                    <span class="text-danger" style="font-size: 11.5px;"> </span>
+                             
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="name" class="col-3">Name</label>
+                            <div class="col-9">
+                                <input type="text" id="name" class="form-control" wire:model="name">
+                              
+                                    <span class="text-danger" style="font-size: 11.5px;"> </span>
                    
-                  </div>
-                  <!-- ./col -->
-                  <div class="col-4 text-center">
-                    <div id="sparkline-3"></div>
-              
-                  </div>
-                  <!-- ./col -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-3">Email</label>
+                            <div class="col-9">
+                                <input type="email" id="email" class="form-control" wire:model="email">
+                              
+                                    <span class="text-danger" style="font-size: 11.5px;"> </span>
+                            
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="phone" class="col-3">Phone</label>
+                            <div class="col-9">
+                                <input type="number" id="phone" class="form-control" wire:model="phone">
+                                 
+                                    <span class="text-danger" style="font-size: 11.5px;"> </span>
+                                
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-3"></label>
+                            <div class="col-9">
+                                <button type="submit" class="btn btn-sm btn-primary">Add Student</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <!-- /.row -->
+            </div>
+        </div>
+    </div>
+
+    <div wire:ignore.self class="modal fade" id="editStudentModal" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Student</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" wire:click="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <form wire:submit.prevent="editStudentData">
+                        <div class="form-group row">
+                            <label for="student_id" class="col-3">Student ID</label>
+                            <div class="col-9">
+                                <input type="number" id="student_id" class="form-control" wire:model="student_id">
+                              
+                                    <span class="text-danger" style="font-size: 11.5px;"> </span>
+                               
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="name" class="col-3">Name</label>
+                            <div class="col-9">
+                                <input type="text" id="name" class="form-control" wire:model="name">
+                             
+                                    <span class="text-danger" style="font-size: 11.5px;"> </span>
+                             
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-3">Email</label>
+                            <div class="col-9">
+                                <input type="email" id="email" class="form-control" wire:model="email">
+                                
+                                    <span class="text-danger" style="font-size: 11.5px;"> </span>
+                                
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="phone" class="col-3">Phone</label>
+                            <div class="col-9">
+                                <input type="number" id="phone" class="form-control" wire:model="phone">
+                             
+                                    <span class="text-danger" style="font-size: 11.5px;"> </span>
+                            
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-3"></label>
+                            <div class="col-9">
+                                <button type="submit" class="btn btn-sm btn-primary">Edit Student</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div wire:ignore.self class="modal fade" id="deleteStudentModal" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete Confirmation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body pt-4 pb-4">
+                    <h6>Are you sure? You want to delete this student data!</h6>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-sm btn-primary" wire:click="cancel()" data-dismiss="modal" aria-label="Close">Cancel</button>
+                    <button class="btn btn-sm btn-danger" wire:click="deleteStudentData()">Yes! Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div wire:ignore.self class="modal fade" id="viewStudentModal" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Student Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" wire:click="closeViewStudentModal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th>ID: </th>
+                                 
+                            </tr>
+
+                            <tr>
+                                <th>Name: </th>
+                              
+                            </tr>
+
+                            <tr>
+                                <th>Email: </th>
+                                 
+                            </tr>
+
+                            <tr>
+                                <th>Phone: </th>
+                                 
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer clearfix">
+                  <ul class="pagination pagination-sm m-0 float-right">
+                    <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                  </ul>
+                </div>
               </div>
             </div>
             <!-- /.card -->
 
-          </section>
-          <!-- right col -->
-        </div>
-        <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
+    
   </div>
+    
+  </div>
+  
   <!-- /.content-wrapper -->
 
   <!--footer-->
@@ -666,6 +603,8 @@
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js" integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous"></script>
 <!-- Bootstrap 4 -->
 <script src="adminpanel/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->
